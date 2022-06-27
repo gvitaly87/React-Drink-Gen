@@ -1,20 +1,26 @@
 import { Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./styles/global";
+import { theme } from "./styles/theme";
 
-import { NavBar } from "./components/NavBar";
+import { Navbar } from "./components";
 
 import { HomePage } from "./pages/HomePage";
 import { GalleryPage } from "./pages/GalleryPage";
 
 const App = () => {
   return (
-    <>
-      <NavBar />
-      <h1>Updated Cocktail Generator</h1>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-      </Routes>
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyles />
+        <Navbar pages={["about", "recipes", "random"]} />
+        <h1>Updated Cocktail Generator</h1>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+        </Routes>
+      </>
+    </ThemeProvider>
   );
 };
 
