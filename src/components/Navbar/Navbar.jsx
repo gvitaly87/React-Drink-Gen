@@ -14,10 +14,18 @@ import {
 import BurgerIcon from "./BurgerIcon";
 
 const NavMenuLink = ({ page, currentPage, setCurrentPage }) => {
-  let pageLink = page ? `/${page}` : "/";
-  let pageLabel = page
-    ? page.charAt(0).toUpperCase() + page.slice(1).replace(/-/gi, " ")
-    : "Home";
+  let pageLink;
+  let pageLabel;
+
+  if (page) {
+    pageLink = `/${page}`;
+    pageLabel =
+      page.charAt(0).toUpperCase() + page.slice(1).replace(/-/gi, " ");
+  } else {
+    // Default Case
+    pageLink = "/";
+    pageLabel = "Home";
+  }
 
   return (
     <MenuItem>

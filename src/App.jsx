@@ -16,8 +16,10 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <Navbar pages={["about", "recipes", "random-drink", "log-in"]} />
-        <h1>Updated Cocktail Generator</h1>
+        <Navbar
+          pages={["about", "recipes", "random-drink", "log-in"]}
+          displayHomeButton={false}
+        />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />

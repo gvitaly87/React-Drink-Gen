@@ -72,6 +72,7 @@ export const Menu = styled.ul`
     width: 100%;
     height: 100vh;
     margin: 0;
+    padding: 0;
 
     background: linear-gradient(rgba(68, 68, 68, 0.3), rgba(68, 68, 68, 0.8));
     transition: all 0.5s ease;
@@ -112,7 +113,7 @@ export const MenuLink = styled(Link)`
   &:active {
     color: ${({ theme }) => theme.accentYellow};
   }
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: ${({ theme }) => theme.tablet}) {
     display: block;
     padding: 3rem;
     text-align: center;
