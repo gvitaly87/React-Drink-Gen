@@ -2,7 +2,7 @@ export const theme = {
   // Color Scheme
   primaryDark: "#9E4646",
   primaryLight: "#D0D1D3",
-  primaryHover: "#9e4646",
+  primaryHover: "#EAA22F",
   secondaryDark: "#C46969",
   secondaryLight: "#FFFFFF",
   accentYellow: "#FFC61B",

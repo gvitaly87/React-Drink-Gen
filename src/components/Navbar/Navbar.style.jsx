@@ -39,6 +39,7 @@ export const NavLogo = styled(Link)`
   transition: all 0.5s ease;
   &:hover {
     transform: scale(1.08);
+    color: ${({ theme }) => theme.accentOrange};
   }
 `;
 
@@ -86,5 +87,35 @@ export const MenuItem = styled.li`
     &:hover {
       border: none;
     }
+  }
+`;
+
+export const MenuLink = styled(Link)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2rem;
+  color: ${({ theme }) => theme.secondaryLight};
+
+  padding: 1rem 2rem;
+  height: 100%;
+
+  transition: all 0.2s ease;
+  &:hover {
+    color: ${({ theme }) => theme.accentOrange};
+    transform: translateY(-3rem);
+  }
+  &:active {
+    transform: translateY(3rem);
+    color: ${({ theme }) => theme.accentYellow};
+  }
+  @media only screen and (max-width: 1000px) {
+    display: block;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.2s ease;
   }
 `;
