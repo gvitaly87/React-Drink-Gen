@@ -6,21 +6,24 @@ import { theme } from "./styles/theme";
 import { Navbar } from "./components";
 
 import { HomePage } from "./pages/HomePage";
-import { GalleryPage } from "./pages/GalleryPage";
+import { AboutPage } from "./pages/AboutPage";
+import { RecipesPage } from "./pages/RecipesPage";
+import { RandomDrinkPage } from "./pages/RandomDrinkPage";
+import { LoginPage } from "./pages/LoginPage";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <Navbar
-          pages={["about", "recipes", "random-drink", "log-in"]}
-          displayHomeButton={false}
-        />
+        <Navbar pages={["about", "recipes", "random-drink", "log-in"]} />
         <h1>Updated Cocktail Generator</h1>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/recipes" element={<RecipesPage />} />
+          <Route path="/random-drink" element={<RandomDrinkPage />} />
+          <Route path="/log-in" element={<LoginPage />} />
         </Routes>
       </>
     </ThemeProvider>

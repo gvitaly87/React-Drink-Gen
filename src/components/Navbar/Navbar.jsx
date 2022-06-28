@@ -13,19 +13,28 @@ import {
 
 import BurgerIcon from "./BurgerIcon";
 
-const NavMenuLink = ({ page = "" }) => {
-  let pageLink = `/${page}`;
-  let pageLabel = page.charAt(0).toUpperCase() + page.slice(1);
+const NavMenuLink = ({ page, currentPage, setCurrentPage }) => {
+  let pageLink = page ? `/${page}` : "/";
+  let pageLabel = page
+    ? page.charAt(0).toUpperCase() + page.slice(1).replace(/-/gi, " ")
+    : "Home";
+
   return (
     <MenuItem>
-      <MenuLink to={pageLink}>{pageLabel}</MenuLink>
+      <MenuLink
+        to={pageLink}
+        selected={pageLink === currentPage}
+        onClick={() => setCurrentPage(pageLink)}
+      >
+        {pageLabel}
+      </MenuLink>
     </MenuItem>
   );
 };
 
 const Navbar = ({ pages, displayHomeButton = true }) => {
   const [openNav, setOpenNav] = useState(false);
-  // const [currentPage, setCurrentPage] = useState('');
+  const [currentPage, setCurrentPage] = useState("");
 
   return (
     <>
@@ -36,12 +45,25 @@ const Navbar = ({ pages, displayHomeButton = true }) => {
             Mixer
           </NavLogo>
           <Menu showMenu={openNav} onClick={() => setOpenNav(false)}>
+            {displayHomeButton ? (
+              <NavMenuLink
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
+            ) : (
+              <></>
+            )}
             {pages.map((page, key) => (
-              <NavMenuLink key={key} page={page} />
+              <NavMenuLink
+                key={key}
+                page={page}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+              />
             ))}
           </Menu>
+          <BurgerIcon open={openNav} setOpen={setOpenNav}></BurgerIcon>
         </NavbarContainer>
-        <BurgerIcon open={openNav} setOpen={setOpenNav}></BurgerIcon>
       </Nav>
     </>
   );
@@ -54,6 +76,8 @@ Navbar.propTypes = {
 
 NavMenuLink.propTypes = {
   page: PropTypes.string,
+  currentPage: PropTypes.string.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default Navbar;

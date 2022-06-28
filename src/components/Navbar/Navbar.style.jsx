@@ -71,8 +71,9 @@ export const Menu = styled.ul`
 
     width: 100%;
     height: 100vh;
+    margin: 0;
 
-    background-color: rgba(0, 0, 0, 0.9);
+    background: linear-gradient(rgba(68, 68, 68, 0.3), rgba(68, 68, 68, 0.8));
     transition: all 0.5s ease;
   }
 `;
@@ -96,9 +97,10 @@ export const MenuLink = styled(Link)`
   align-items: center;
 
   text-decoration: none;
-  font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.2rem;
   color: ${({ theme }) => theme.secondaryLight};
+  background-color: ${({ theme, selected }) =>
+    selected ? theme.primaryDark : "transparent"};
 
   padding: 1rem 2rem;
   height: 100%;
@@ -106,10 +108,8 @@ export const MenuLink = styled(Link)`
   transition: all 0.2s ease;
   &:hover {
     color: ${({ theme }) => theme.accentOrange};
-    transform: translateY(-3rem);
   }
   &:active {
-    transform: translateY(3rem);
     color: ${({ theme }) => theme.accentYellow};
   }
   @media only screen and (max-width: 1000px) {
