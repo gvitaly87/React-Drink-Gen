@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.primaryDark};
     color: ${({ theme }) => theme.primaryLight};
-    height: 100vh;
+    min-height: 100vh;
     text-rendering: optimizeLegibility;
     font-family:  ${({ theme }) => theme.textFont};
   }

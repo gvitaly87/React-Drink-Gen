@@ -11,7 +11,7 @@ export const HeroContainer = styled.main`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  height: 74vh;
   @media only screen and (max-width: 1600px) {
     height: 85vh;
   }

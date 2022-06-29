@@ -18,4 +18,7 @@ export const theme = {
   laptop: "1500px",
   tablet: "900px",
   mobile: "400px",
+
+  //sizes
+  navbarSize: "small",
 };

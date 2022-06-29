@@ -48,7 +48,7 @@ const Navbar = ({ pages, displayHomeButton = true }) => {
     <>
       <Nav>
         <NavbarContainer>
-          <NavLogo to="/">
+          <NavLogo to="/" onClick={() => setCurrentPage("")}>
             <NavIcon />
             Mixer
           </NavLogo>
@@ -79,6 +79,7 @@ const Navbar = ({ pages, displayHomeButton = true }) => {
 
 Navbar.propTypes = {
   pages: PropTypes.array.isRequired,
+
   displayHomeButton: PropTypes.bool,
 };
 
